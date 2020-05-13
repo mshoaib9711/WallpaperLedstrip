@@ -22,6 +22,9 @@ void setup()
   pixels.setBrightness(65);
 }
 
+/*
+* Image this is a good and fruitful change I made in the code
+*/
 void loop()
 {
   // see if there's incoming serial data:
