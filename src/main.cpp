@@ -15,7 +15,7 @@ void parseCommand(int incomingBytes[9]);
 void setup()
 {
   // initialize serial communication:
-  Serial.begin(9600);
+  Serial.begin(115200);
   // initialize the LED pin as an output:
   pinMode(ledPin, OUTPUT);
   pixels.begin(); // INITIALIZE NeoPixel strip object (REQUIRED)
