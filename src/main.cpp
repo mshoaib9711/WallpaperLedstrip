@@ -37,6 +37,9 @@ void loop()
   }
 }
 
+/*
+* This function parses the incoming bytes and lits the correct leds
+*/
 void parseCommand(int incomingBytes[9])
 {
   uint32_t color1 = pixels.Color(incomingBytes[0], incomingBytes[1], incomingBytes[2], 0);
