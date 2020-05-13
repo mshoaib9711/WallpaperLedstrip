@@ -9,7 +9,11 @@ const int ledPin = 13; // the pin that the LED is attached to      // a variable
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 #define DELAYVAL 25
 
-void setup() {
+
+void parseCommand(int incomingBytes[9]);
+
+void setup()
+{
   // initialize serial communication:
   Serial.begin(9600);
   // initialize the LED pin as an output:
@@ -23,17 +27,24 @@ void loop()
   // see if there's incoming serial data:
   if (Serial.available() >= 9)
   {
-    int incomingBytes[8];
-    for (int i = 0; i < 9; i++)
-    {
+    int incomingBytes[9];
+
+    for (int i = 0; i < 9; i++) {
       incomingBytes[i] = Serial.read();
     }
-    uint32_t color1 = pixels.Color(incomingBytes[0], incomingBytes[1], incomingBytes[2], 0);
-    uint32_t color2 = pixels.Color(incomingBytes[3], incomingBytes[4], incomingBytes[5], 0);
-    uint32_t color3 = pixels.Color(incomingBytes[6], incomingBytes[7], incomingBytes[8], 0);
-    pixels.fill(color1, 0, 10);
-    pixels.fill(color2, 11, 20);
-    pixels.fill(color3, 21, 30);
-    pixels.show();
+
+    parseCommand(incomingBytes);
   }
+}
+
+void parseCommand(int incomingBytes[9])
+{
+  uint32_t color1 = pixels.Color(incomingBytes[0], incomingBytes[1], incomingBytes[2], 0);
+  uint32_t color2 = pixels.Color(incomingBytes[3], incomingBytes[4], incomingBytes[5], 0);
+  uint32_t color3 = pixels.Color(incomingBytes[6], incomingBytes[7], incomingBytes[8], 0);
+
+  pixels.fill(color1, 0, 10);
+  pixels.fill(color2, 11, 20);
+  pixels.fill(color3, 21, 30);
+  pixels.show();
 }
