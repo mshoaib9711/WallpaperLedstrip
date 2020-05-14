@@ -79,7 +79,7 @@ def kmeans(points, k, min_diff):
         if diff < min_diff:
             break
     return clusters
-    
+
 def read_wallpaper():
     # read and store all wallpapers at once upon start of program
     files = []
@@ -106,7 +106,7 @@ def clr32bit(rgbtuple):
     R = rgbtuple[0]
     G = rgbtuple[1]
     B = rgbtuple[2]
-    clr32 = 0 | (R << 24) | (G << 16) | (B << 8)
+    clr32 = (R << 24) | (G << 16) | (B << 8)
     return clr32
 
 read_wallpaper()
