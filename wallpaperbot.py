@@ -79,27 +79,38 @@ def kmeans(points, k, min_diff):
         if diff < min_diff:
             break
     return clusters
-
+    
 def read_wallpaper():
-        #while True:
-        files = []
-        [files.extend(glob.glob(PATH+r'\*.'+ e)) for e in ext]
-        for image in files:
-            a = colorz(image)  
-            x= 0
-            for cl in a:
-                val = tuple(int(cl.lstrip("#")[i:i+2], 16) for i in (0, 2, 4))
-                ser.write(struct.pack('>BBB', val[0], val[1], val[2]))
-                r = val[0]
-                g = val [1]
-                b = val[2]
-                print('R=' + str(r) + 'G=' + str(g) + 'B=' + str(b))
-                if x % 3 == 0:
-                    ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 1, image, 1)
-                time.sleep(3)
-                x += 1
-                #time.sleep(3)
+    # read and store all wallpapers at once upon start of program
+    files = []
+    [files.extend(glob.glob(PATH+r'\*.'+ e)) for e in ext]
+    return files
+
+def getwallcolor(wallfiles):
+    # get the color of all the wallpapers are store
+    clrlist = [] 
+    for image in wallfiles:
+        clrlist.append(colorz(image))
+    return clrlist
+
+def setwallpaper(img):
+    # set the wallpaper in order 
+    ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 1, img, 1)
+
+def sendclr(clrin32):
+    # send 32 bit color to arduino 
+    ser.write(clrin32)
+    
+
+def clr32bit(rgbtuple):
+    R = rgbtuple[0]
+    G = rgbtuple[1]
+    B = rgbtuple[2]
+    clr32 = 0 | (R << 24) | (G << 16) | (B << 8)
+    return clr32
+
 read_wallpaper()
+
 
 
   
