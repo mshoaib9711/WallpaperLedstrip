@@ -86,30 +86,59 @@ def read_wallpaper():
     [files.extend(glob.glob(PATH+r'\*.'+ e)) for e in ext]
     return files
 
-def getwallcolor(wallfiles):
+def getwallcolor(wallfiles, hexclr = []):
     # get the color of all the wallpapers are store
-    clrlist = [] 
     for image in wallfiles:
-        clrlist.append(colorz(image))
-    return clrlist
+        hexclr.append(colorz(image))
+    return hexclr
 
 def setwallpaper(img):
     # set the wallpaper in order 
     ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 1, img, 1)
 
-def sendclr(clrin32):
+def sendcolr(clrin32):
     # send 32 bit color to arduino 
-    ser.write(clrin32)
+    color1 = clrin32[0]
+    color2 = clrin32[1]
+    color3 = clrin32[2]
+
+    ser.write(color1+','+color2+','+ color3 +'\n')
     
 
-def clr32bit(rgbtuple):
+def get_clr32bit(rgbtuple):
     R = rgbtuple[0]
     G = rgbtuple[1]
     B = rgbtuple[2]
     clr32 = (R << 24) | (G << 16) | (B << 8)
     return clr32
 
-read_wallpaper()
+while True:
+    imgfile = read_wallpaper()
+    hexclrlist = getwallcolor(imgfile)
+    rgb = []
+    i = 0
+    for file in imgfile:
+        for cl in hexclrlist:
+            val = tuple(int(cl.lstrip("#")[i:i+2], 16) for i in (0, 2, 4))
+            color32bit = get_clr32bit(val)
+            rgb.append(color32bit)
+            hexclrlist.remove(cl)
+            i += 1
+            if i == 2:
+                sendcolr(rgb)
+                setwallpaper(file)
+                i = 0
+                rgb.clear()
+                del val
+                time.sleep(3)
+                break 
+        
+
+
+
+    
+
+
 
 
 
