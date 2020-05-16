@@ -16,7 +16,7 @@ except ImportError:
 Point = namedtuple('Point', ('coords','n','ct'))
 Cluster = namedtuple('Cluster', ('points', 'center', 'n'))
 
-ser = serial.Serial("COM3", 9600, timeout = 1)
+ser = serial.Serial("COM3", 115200, timeout = 1)
 
 SPI_SETDESKWALLPAPER = 20
 PATH = r'C:\Users\Shoaib\Desktop\Wallpaper'
@@ -86,11 +86,17 @@ def read_wallpaper():
     [files.extend(glob.glob(PATH+r'\*.'+ e)) for e in ext]
     return files
 
-def getwallcolor(wallfiles, hexclr = []):
+def getwallcolor(wallfiles, hexobj = []):
     # get the color of all the wallpapers are store
     for image in wallfiles:
-        hexclr.append(colorz(image))
-    return hexclr
+        hexobj.append(colorz(image))
+    return hexobj
+
+def get_hexvalues(hexobjects, hexlist = []):
+    for i in range(len(hexobjects)):
+        for x in hexobjects[i]:
+            hexlist.append(x)
+    return hexlist
 
 def setwallpaper(img):
     # set the wallpaper in order 
@@ -102,7 +108,10 @@ def sendcolr(clrin32):
     color2 = clrin32[1]
     color3 = clrin32[2]
 
-    ser.write(color1+','+color2+','+ color3 +'\n')
+    #print ((str(color1) + ',' + str(color2) + ',' + str(color3)))
+    print (((str(color1).encode() + b',' + str(color2).encode() + b',' + str(color3).encode())))
+    ser.write(str(color1).encode() + b',' + str(color2).encode() + b',' + str(color3).encode())
+    #print(color1 + color2 + color3)
     
 
 def get_clr32bit(rgbtuple):
@@ -112,35 +121,30 @@ def get_clr32bit(rgbtuple):
     clr32 = (R << 24) | (G << 16) | (B << 8)
     return clr32
 
+def chunks(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
+
+
+imgfile = read_wallpaper()
+hexobjlist = getwallcolor(imgfile)
+hexclrlist = get_hexvalues(hexobjlist)
+
+rgb = []
+
 while True:
-    imgfile = read_wallpaper()
-    hexclrlist = getwallcolor(imgfile)
-    rgb = []
-    i = 0
+    clr_index = 0
+    clr_chunks = chunks(hexclrlist, 3)
     for file in imgfile:
-        for cl in hexclrlist:
-            val = tuple(int(cl.lstrip("#")[i:i+2], 16) for i in (0, 2, 4))
+        clr_chunk = next(clr_chunks)
+        for clr in clr_chunk:
+            val = tuple(int(clr.lstrip("#")[i:i+2], 16) for i in (0, 2, 4))                    
             color32bit = get_clr32bit(val)
             rgb.append(color32bit)
-            hexclrlist.remove(cl)
-            i += 1
-            if i == 2:
-                sendcolr(rgb)
-                setwallpaper(file)
-                i = 0
-                rgb.clear()
-                del val
-                time.sleep(3)
-                break 
+        sendcolr(rgb)
+        setwallpaper(file)
         
-
-
-
-    
-
-
-
-
-
-  
-
+        
+        rgb.clear()
+        time.sleep(3)
