@@ -18,7 +18,7 @@ void setup() {
     // initialize the LED pin as an output:
     pinMode(ledPin, OUTPUT);
     pixels.begin();  // INITIALIZE NeoPixel strip object (REQUIRED)
-    pixels.setBrightness(65);
+    pixels.setBrightness(80);
 }
 
 String incomingData = "";
@@ -41,17 +41,17 @@ void loop() {
  * This function parses the incoming command string and lits the correct leds
  */
 void parseCommand(String cmd) {
-    uint32_t color1 = splitValues(cmd, ',', 0).toInt();
-    uint32_t color2 = splitValues(cmd, ',', 1).toInt();
-    uint32_t color3 = splitValues(cmd, ',', 2).toInt();
+    uint32_t color1 = splitValues(cmd, ',', 0).toInt() >> 8;
+    uint32_t color2 = splitValues(cmd, ',', 1).toInt() >> 8;
+    uint32_t color3 = splitValues(cmd, ',', 2).toInt() >> 8;
 
     Serial.print("Color[1]: "); Serial.println(color1);
     Serial.print("Color[2]: "); Serial.println(color2);
     Serial.print("Color[3]: "); Serial.println(color3);
 
-    pixels.fill(color1, 0, 10);
-    pixels.fill(color2, 11, 20);
-    pixels.fill(color3, 21, 30);
+    pixels.fill(color1, 0, 24);
+    pixels.fill(color2, 24, 48);
+    pixels.fill(color3, 48, 70);
 
     pixels.show();
 }
