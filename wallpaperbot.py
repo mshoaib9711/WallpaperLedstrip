@@ -109,8 +109,10 @@ def sendcolr(clrin32):
     color3 = clrin32[2]
 
     #print ((str(color1) + ',' + str(color2) + ',' + str(color3)))
-    print (((str(color1).encode() + b',' + str(color2).encode() + b',' + str(color3).encode())))
-    ser.write(str(color1).encode() + b',' + str(color2).encode() + b',' + str(color3).encode())
+    text = (str(color1) + ',' + str(color2) + ',' + str(color3)+ '\n').encode()
+    print(text)
+    ser.write(text)
+
     #print(color1 + color2 + color3)
     
 
