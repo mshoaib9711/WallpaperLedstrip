@@ -1,5 +1,7 @@
 # WallpaperLEDProject
-This is a simple yet cool project that came to my mind in sleep. This project allows ambient lighting around your desk setup to match your wallpaper. So if you are looking to level up your desk setup apart from just getting some mainstream LED strips, this your project to jump in. 
+This is a simple yet cool project that came to my mind in sleep. This project allows ambient lighting around your desk setup to match your wallpaper. So if you are looking to level up your desk setup apart from just getting some mainstream LED strips, this your project to jump in. <br>
+
+![ALT](ezgif.com-video-to-gif.gif)
 ## Getting Started
 To get this up and running you will need quite a few basic hardware products that shouldn't cost you much for what the project is worth.
 ### Prerequisites
