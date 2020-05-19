@@ -7,12 +7,12 @@ To get this up and running you will need quite a few basic hardware products tha
 * WS2812 LED strip
 * 5V 2A adapter (Commonly can be found with Samsung charging bricks)
 
-### Installation 
+## Installation 
 Before we jump straight into usage, we will need to install few pieces  of software to get this up and running. 
 
-#### Installing Python
+### Installing Python
 We will first be needing to install the latest version of [Python](https://www.python.org/downloads/).
-#### Installing Arduino IDE
+### Installing Arduino IDE
 After installing python we then need to install [Arduino IDE](https://www.arduino.cc/en/Main/Software/).
 Once done, we can now plug in our Arduino board which is ready to roll. 
 ## Setting Up
@@ -45,5 +45,11 @@ ser = serial.Serial("COM3", 115200, timeout = 1)
 COM3 needs to be replaced with your corresponding COM port in use.
 
 ## Contributing
+I truly believe there are great ideas and scope in the future for this project as we have already began working on making this work for videos/games. <br> So if you wish to contribute with a great idea of yours and want to directly work/help with us, you can send a pull-request to us. Anyone can feel free to submit issues and enhancement requests. <br> 
+### PlatformIO
+We use PlatformIO extension on vscode for its superior embedded development experience compared to Arduino IDE. The configuration defaults we are using for platformIO can be found in the __platformio.ini__ file. 
 
-## Credits
+## Credits and Support 
+If you find our project fun and wish to support us, you can help at [buymeacoffe](https://www.buymeacoffee.com/mshoaib9711) or at the least star our project to help motivate us and keep us going. This is only my first project and I wish to make many more fun open source projects in the coming future. Cheers!
+<br>
+* Contributors: [mshoaib9711](https://github.com/mshoaib9711), [Panalgin](https://github.com/panalgin), [Shahlin Ibrahim](https://github.com/shahlin).
