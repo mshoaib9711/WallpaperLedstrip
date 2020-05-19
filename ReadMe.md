@@ -62,7 +62,11 @@ build_flags = -Wunknown-pragmas
 upload_port = COM5
 ~~~
 This is an example and you will have to customize the 'board', 'lib_extra_dirs' and 'upload_port' for your own PC and hardware used. 
- __platformio.ini__ file. 
+ __platformio.ini__ file. <br>
+ You can change the speed of the program to your liking by tweaking in python script.
+ ~~~
+ time.sleep()
+ ~~~
 
 ## Credits and Support 
 If you find our project fun and wish to support us, you can help at [buymeacoffe](https://www.buymeacoffee.com/mshoaib9711) or at the least star our project to help motivate us and keep us going. This is only my first project and I wish to make many more fun open source projects in the coming future. Cheers!
