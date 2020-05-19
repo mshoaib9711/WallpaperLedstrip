@@ -13,7 +13,7 @@ To get this up and running you will need quite a few basic hardware products tha
 Before we jump straight into usage, we will need to install few pieces  of software to get this up and running. 
 
 ### Installing Python
-So if you don'r already have Python installed on your PC we will first be needing to install the latest version  from [here](https://www.python.org/downloads/).
+So if you don't already have Python installed on your PC we will first be needing to install the latest version  from [here](https://www.python.org/downloads/).
 ### Installing Arduino IDE
 And for those who don't have Arduino IDE installed we then would need to install [Arduino IDE](https://www.arduino.cc/en/Main/Software/).
 Once done, we can now plug in our Arduino board which is ready to roll. 
