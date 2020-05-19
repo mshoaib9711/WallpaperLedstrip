@@ -11,15 +11,15 @@ To get this up and running you will need quite a few basic hardware products tha
 Before we jump straight into usage, we will need to install few pieces  of software to get this up and running. 
 
 ### Installing Python
-We will first be needing to install the latest version of [Python](https://www.python.org/downloads/).
+So if you don'r already have Python installed on your PC we will first be needing to install the latest version  from [here](https://www.python.org/downloads/).
 ### Installing Arduino IDE
-After installing python we then need to install [Arduino IDE](https://www.arduino.cc/en/Main/Software/).
+And for those who don't have Arduino IDE installed we then would need to install [Arduino IDE](https://www.arduino.cc/en/Main/Software/).
 Once done, we can now plug in our Arduino board which is ready to roll. 
 ## Setting Up
-This is where we will be getting down and dirty, just kidding. We will need to make a few simple connections and install few libraries that make this project work as intended.
+Ok, this is where we will be getting down and dirty, just kidding. We will simply need to make a few easy connections and install few libraries that make this project work as intended.
 ### Connections
 ![ALT](/Ledsetup.PNG)<br>
-Here are the simple connections you will be needing to get the Arduino and LED strip ready.
+Here are the simple connections you will be needing to get the Arduino and LED strip ready. Notice that the DC barrel jack only represents a 5V 2A power source. 
 ### Python Libraries
 Apart from using the in-built packages from python, we make use of 'PIL' package that needs to be installed on your PC. To do that we use this command in the terminal:
 ~~~
@@ -29,12 +29,12 @@ Or
 ~~~
 pip install Pillow
 ~~~
-Once you are done with that, you can open the python script 'Wallpaperbot.py' and change the 'PATH' to your desired path of image folder.
+Once you are done with that, you can open the python script __Wallpaperbot.py and change the 'PATH' to your desired path of image folder.
 ~~~
 PATH = r'C:\Users\Shoaib\Desktop\Wallpaper'
 ~~~
 ### Arduino Libraries
-In the Arduino IDE from the __Sketch__ menu, > __Include Library__ > __Manage Libraries__...  In the text input box type in __"NeoPixel"__. Look for __"Adafruit NeoPixel by Adafruit"__ and select the latest version by clicking on the popup menu next to the __Install__ button. Then click on the __Install__ button. After it's installed, you can click the __"close"__ button. Next, you need to get the 'main.cpp' code on your sketch. Once you have that you can simply compile and upload the sketch to your Arduino board.<br> 
+In the Arduino IDE from the __Sketch__ menu, > __Include Library__ > __Manage Libraries__...  In the text input box type in __"NeoPixel"__. Look for __"Adafruit NeoPixel by Adafruit"__ and select the latest version by clicking on the popup menu next to the __Install__ button. Then click on the __Install__ button. After it's installed, you can click the __"close"__ button. Next, you need to get the 'WallpaperLedstrip.ino' code on your sketch. Once you have that you can simply compile and upload the sketch to your Arduino board.<br> 
 __Important Note. <br>You will need to make sure that the 'COM port' initalized in the Python script and Arduino Sketch is the same__.
 On Arduino:
 To check what COM port is being used, Go to __Tools__ > __Port:__ and click the one with your board name on it. <br>
@@ -42,10 +42,10 @@ On Python:
 ~~~
 ser = serial.Serial("COM3", 115200, timeout = 1)
 ~~~
-COM3 needs to be replaced with your corresponding COM port in use.
+COM3 needs to be replaced with your corresponding COM port in use. <br> Then you can simply run the python script with the Arduino and see the output for yourself. To close the program use __CRTL+C__.
 
 ## Contributing
-I truly believe there are great ideas and scope in the future for this project as we have already began working on making this work for videos/games. <br> So if you wish to contribute with a great idea of yours and want to directly work/help with us, you can send a pull-request to us. Anyone can feel free to submit issues and enhancement requests. <br> 
+I truly believe there great scope in the future for this project as we have already began working on making this work for videos/games. <br> So if you wish to contribute with a great idea of yours and want to directly work/help with us, you can send a pull-request to us. Anyone can feel free to submit issues and enhancement requests. <br> 
 ### PlatformIO
 We use PlatformIO extension on vscode for its superior embedded development experience compared to Arduino IDE. The configuration defaults example is as follows:
 ~~~
