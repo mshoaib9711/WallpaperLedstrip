@@ -47,7 +47,20 @@ COM3 needs to be replaced with your corresponding COM port in use.
 ## Contributing
 I truly believe there are great ideas and scope in the future for this project as we have already began working on making this work for videos/games. <br> So if you wish to contribute with a great idea of yours and want to directly work/help with us, you can send a pull-request to us. Anyone can feel free to submit issues and enhancement requests. <br> 
 ### PlatformIO
-We use PlatformIO extension on vscode for its superior embedded development experience compared to Arduino IDE. The configuration defaults we are using for platformIO can be found in the __platformio.ini__ file. 
+We use PlatformIO extension on vscode for its superior embedded development experience compared to Arduino IDE. The configuration defaults example is as follows:
+~~~
+[env:uno]
+platform = atmelavr
+board = uno
+framework = arduino
+
+lib_extra_dirs = c:/Users/masha/Documents/Arduino/libraries, c:/Program Files (x86)/arduino/libraries
+monitor_speed = 115200
+build_flags = -Wunknown-pragmas
+upload_port = COM5
+~~~
+This is an example and you will have to customize the 'board', 'lib_extra_dirs' and 'upload_port' for your own PC and hardware used. 
+ __platformio.ini__ file. 
 
 ## Credits and Support 
 If you find our project fun and wish to support us, you can help at [buymeacoffe](https://www.buymeacoffee.com/mshoaib9711) or at the least star our project to help motivate us and keep us going. This is only my first project and I wish to make many more fun open source projects in the coming future. Cheers!
