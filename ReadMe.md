@@ -70,6 +70,6 @@ This is an example and you will have to customize the 'board', 'lib_extra_dirs' 
 
 
 ## Credits and Support 
-If you find our project fun and wish to support us, you can help at [buymeacoffe](https://www.buymeacoffee.com/mshoaib9711) or at the least star our project to help motivate us and keep us going. This is only my first project and I wish to make many more fun open source projects in the coming future. Cheers!
+If you find our project fun and wish to support us, you can help at [buymeacoffee](https://www.buymeacoffee.com/mshoaib9711) or at the least star our project to help motivate us and keep us going. This is only my first project and I wish to make many more fun open source projects in the coming future. Cheers!
 <br>
 * Contributors: [mshoaib9711](https://github.com/mshoaib9711), [Panalgin](https://github.com/panalgin), [Shahlin Ibrahim](https://github.com/shahlin).
