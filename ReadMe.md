@@ -31,7 +31,7 @@ Or
 ~~~
 pip install Pillow
 ~~~
-Once you are done with that, you can open the python script __Wallpaperbot.py and change the 'PATH' to your desired path of image folder.
+Once you are done with that, you can open the python script __python Wallpaperbot.py and change the 'PATH' to your desired path of image folder.
 ~~~
 PATH = r'C:\Users\Shoaib\Desktop\Wallpaper'
 ~~~

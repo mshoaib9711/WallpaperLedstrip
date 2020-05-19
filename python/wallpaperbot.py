@@ -120,7 +120,7 @@ def get_clr32bit(rgbtuple):
     R = rgbtuple[0]
     G = rgbtuple[1]
     B = rgbtuple[2]
-    clr32 = (R << 24) | (G << 16) | (B << 8)
+    clr32 = (0 << 24) | (R << 16) | (G << 8) | B
     return clr32
 
 def chunks(lst, n):
