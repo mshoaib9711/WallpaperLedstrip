@@ -41,9 +41,9 @@ void loop() {
  * This function parses the incoming command string and lits the correct leds
  */
 void parseCommand(String cmd) {
-    uint32_t color1 = splitValues(cmd, ',', 0).toInt() >> 8;
-    uint32_t color2 = splitValues(cmd, ',', 1).toInt() >> 8;
-    uint32_t color3 = splitValues(cmd, ',', 2).toInt() >> 8;
+    uint32_t color1 = splitValues(cmd, ',', 0).toInt();
+    uint32_t color2 = splitValues(cmd, ',', 1).toInt();
+    uint32_t color3 = splitValues(cmd, ',', 2).toInt();
 
     Serial.print("Color[1]: "); Serial.println(color1);
     Serial.print("Color[2]: "); Serial.println(color2);
