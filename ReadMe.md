@@ -51,7 +51,7 @@ You can change the speed of the program to your liking by tweaking in python scr
  ~~~
 
 ## Contributing
-I truly believe there great scope in the future for this project as we have already began working on making this work for videos/games. <br> So if you wish to contribute with a great idea of yours and want to directly work/help with us, you can send a pull-request to us. Anyone can feel free to submit issues and enhancement requests. <br> 
+I truly believe there's great scope in the future for this project as we have already began working on making this work for videos/games. <br> So if you wish to contribute with great ideas of yours and want to directly work/help with us, you can send a pull-request to us. Anyone can feel free to submit issues and enhancement requests. <br> 
 ### PlatformIO
 We use PlatformIO extension on vscode for its superior embedded development experience compared to Arduino IDE. The configuration defaults example is as follows:
 ~~~
