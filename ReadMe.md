@@ -44,7 +44,11 @@ On Python:
 ~~~
 ser = serial.Serial("COM3", 115200, timeout = 1)
 ~~~
-COM3 needs to be replaced with your corresponding COM port in use. <br> Then you can simply run the python script with the Arduino and see the output for yourself. To close the program use __CRTL+C__.
+COM3 needs to be replaced with your corresponding COM port in use. <br> Then you can simply run the python script with the Arduino and see the output for yourself. To close the program use __CRTL+C__. <br>
+You can change the speed of the program to your liking by tweaking in python script.
+ ~~~
+ time.sleep()
+ ~~~
 
 ## Contributing
 I truly believe there great scope in the future for this project as we have already began working on making this work for videos/games. <br> So if you wish to contribute with a great idea of yours and want to directly work/help with us, you can send a pull-request to us. Anyone can feel free to submit issues and enhancement requests. <br> 
@@ -63,10 +67,7 @@ upload_port = COM5
 ~~~
 This is an example and you will have to customize the 'board', 'lib_extra_dirs' and 'upload_port' for your own PC and hardware used. 
  __platformio.ini__ file. <br>
- You can change the speed of the program to your liking by tweaking in python script.
- ~~~
- time.sleep()
- ~~~
+
 
 ## Credits and Support 
 If you find our project fun and wish to support us, you can help at [buymeacoffe](https://www.buymeacoffee.com/mshoaib9711) or at the least star our project to help motivate us and keep us going. This is only my first project and I wish to make many more fun open source projects in the coming future. Cheers!
